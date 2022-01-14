@@ -6,7 +6,7 @@
 class menu {
 
 private:
-	user* userloggedin;
+	user* userloggedin = nullptr;
 
 public:
 	void makeOrder();
@@ -14,6 +14,8 @@ public:
 	bool login();
 
 	menu();
+
+	void begmloop(int inmopt = 1);
 
 	void mloop(int inmopt = 1);
 

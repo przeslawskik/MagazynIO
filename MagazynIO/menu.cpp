@@ -1,5 +1,6 @@
 #include "menu.h"
 #include <conio.h>
+#include <Windows.h>
 
 void menu::makeOrder() {
 	// TODO - implement menu::makeOrder
@@ -15,42 +16,45 @@ bool menu::login() {
 
 menu::menu() {
 
-	int inm = 1;
+	//this->userloggedin = nullptr;
+	
+}
 
-		while (true) {
-			std::cout << "System obslugi magazynu" << std::endl;
-			std::cout << "Logowanie" << (inm == 1 ? " <<\n" : "\n");
-			std::cout << "Rejestracja nowego u¿ytkownika" << (inm == 2 ? " <<\n" : "\n");
-			std::cout << "Wyjscie z programu" << (inm == 3 ? " <<\n" : "\n");
+void menu::begmloop(int inmopt) {
 
-			char c = _getch();
+	std::cout << "System obslugi magazynu" << std::endl;
+	std::cout << "Logowanie" << (inmopt == 1 ? " <<\n" : "\n");
+	std::cout << "Rejestracja nowego usytkownika" << (inmopt == 2 ? " <<\n" : "\n");
+	std::cout << "Wyjscie z programu" << (inmopt == 3 ? " <<\n" : "\n");
 
-			if (c == 's' || c == 'S') {
-				inm++;
-				if (inm == 4)inm = 1;
-			}
-			else if (c == 'w' || c == 'W') {
-				inm--;
-				if (inm == 0)inm = 3;
-			}
-			else if (c == 13) {
-				switch (inm) {
-				case 1:
-					system("cls");
-					return;
-					break;
-				case 2:
-					break;
-				case 3:
-					exit(0);
-					break;
-				}
-			}
+	char c = _getch();
 
+	if (c == 's' || c == 'S' || c == 80) {
+		inmopt++;
+		if (inmopt == 4)inmopt = 1;
+	}
+	else if (c == 'w' || c == 'W' || c == 72) {
+		inmopt--;
+		if (inmopt == 0)inmopt = 3;
+	}
+	else if (c == 13) {
+		switch (inmopt) {
+		case 1:
 			system("cls");
+			return;
+			break;
+		case 2:
+			return; //register
+			break;
+		case 3:
+			exit(0);
+			break;
 		}
+	}
 
+	system("cls");
 
+	return begmloop(inmopt);
 }
 
 void menu::mloop(int inmopt) {
@@ -63,16 +67,18 @@ void menu::mloop(int inmopt) {
 	std::cout << "Wykonaj dostawe" << (inmopt == 3 ? " <<\n" : "\n");
 	std::cout << "Zmiana danych uzytkownika" << (inmopt == 4 ? " <<\n" : "\n");
 	std::cout << "Zarzadzanie magazynem" << (inmopt == 5 ? " <<\n" : "\n");
-	std::cout << "zakoncz dzialanie programu" << (inmopt == 6 ? " <<\n" : "\n");
+	std::cout << "Zakoncz dzialanie programu" << (inmopt == 6 ? " <<\n" : "\n");
 
 	char c = _getch();
-	std::cout << int(c);
+	//std::cout << int(c);
 
-	if (c == 's' || c == 'S') {
+	//Sleep(1000);
+
+	if (c == 's' || c == 'S'|| c == 80) {
 		inmopt++;
 		if (inmopt == 7)inmopt = 1;
 	}
-	else if(c == 'w' || c == 'W'){
+	else if(c == 'w' || c == 'W' || c == 72){
 		inmopt--; 
 		if (inmopt == 0)inmopt = 6;
 	}
