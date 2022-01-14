@@ -8,12 +8,49 @@ void menu::makeOrder() {
 
 bool menu::login() {
 	return true;
+
 	// TODO - implement menu::login
 	throw "Not yet implemented";
 }
 
 menu::menu() {
-	
+
+	int inm = 1;
+
+		while (true) {
+			std::cout << "System obslugi magazynu" << std::endl;
+			std::cout << "Logowanie" << (inm == 1 ? " <<\n" : "\n");
+			std::cout << "Rejestracja nowego u¿ytkownika" << (inm == 2 ? " <<\n" : "\n");
+			std::cout << "Wyjscie z programu" << (inm == 3 ? " <<\n" : "\n");
+
+			char c = _getch();
+
+			if (c == 's' || c == 'S') {
+				inm++;
+				if (inm == 4)inm = 1;
+			}
+			else if (c == 'w' || c == 'W') {
+				inm--;
+				if (inm == 0)inm = 3;
+			}
+			else if (c == 13) {
+				switch (inm) {
+				case 1:
+					system("cls");
+					return;
+					break;
+				case 2:
+					break;
+				case 3:
+					exit(0);
+					break;
+				}
+			}
+
+			system("cls");
+		}
+
+
 }
 
 void menu::mloop(int inmopt) {
@@ -29,6 +66,7 @@ void menu::mloop(int inmopt) {
 	std::cout << "zakoncz dzialanie programu" << (inmopt == 6 ? " <<\n" : "\n");
 
 	char c = _getch();
+	std::cout << int(c);
 
 	if (c == 's' || c == 'S') {
 		inmopt++;
@@ -74,6 +112,9 @@ void menu::takeOrder() {
 }
 
 void menu::registerUser() {
+
+
+
 	// TODO - implement menu::registerUser
 	throw "Not yet implemented";
 }
