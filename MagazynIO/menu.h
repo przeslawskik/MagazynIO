@@ -5,6 +5,8 @@
 #include <conio.h>
 #include <Windows.h>
 #include <vector>
+#include <fstream>
+#include <string>
 
 class menu {
 
@@ -13,12 +15,17 @@ private:
 
 	std::vector<user> userstab;
 
+	std::fstream file;
+	std::string fname = "u_data";
+
 public:
 	void makeOrder();
 
 	bool login();
 
 	menu();
+
+	~menu();
 
 	void begmloop(int inmopt = 1);
 

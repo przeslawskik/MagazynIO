@@ -37,8 +37,38 @@ bool menu::login() {
 
 menu::menu() {
 
-	//this->userloggedin = nullptr;
+	file.open(fname, std::ios::in);
+
+	std::string s[8];
+
+	while (file >> s[0]) {
+		for (int i = 1; i < 8; i++)file >> s[i];
+
+		userstab.push_back(user(s[0], s[1], s[2], std::stoi(s[3]), std::stoi(s[4]), s[5], s[6], s[7]));
+	}
 	
+	file.close();
+}
+
+menu::~menu() {
+	/*
+	* 
+	file.open(fname, std::ios::out);
+
+	for (int i = 0; i < userstab.size(), i++) {
+		file << userstab[i].getName()<<std::endl;
+		file << userstab[i].getLast_Name() <<std::endl;
+		file << userstab[i].getAddres() <<std::endl;
+		file << userstab[i].getPhone() <<std::endl;
+		file << userstab[i].getSSN() <<std::endl;
+		file << userstab[i].checkPermissions() <<std::endl;
+		file << userstab[i].getPassword() <<std::endl;
+		file << userstab[i].getUsername() <<std::endl;
+	}
+
+	file.close();
+
+	*/
 }
 
 void menu::begmloop(int inmopt) {
