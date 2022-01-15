@@ -10,7 +10,7 @@ int main() {
 
 	while (!m->login());
 
-		m->mloop();
+	m->mloop();
 
-		return 0;
+	return 0;
 }

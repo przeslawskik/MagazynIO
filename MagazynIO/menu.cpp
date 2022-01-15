@@ -6,10 +6,33 @@ void menu::makeOrder() {
 }
 
 bool menu::login() {
-	return true;
 
-	// TODO - implement menu::login
-	throw "Not yet implemented";
+	std::string l, p = "";
+	char c;
+
+		std::cout << "Logowanie uzytkownika\n";
+		std::cout << "Podaj login: ";
+
+		std::cin >> l;
+
+		std::cout << "Podaj haslo: ";
+
+		while ((c = _getch()) != 13)
+			p += c;
+
+		for(int i = 0;i<userstab.size();i++)
+			if(userstab[i].findLogin(l))
+				if (userstab[i].checkPassword(p)) {
+					userloggedin = userstab[i].u_self();
+					system("cls");
+					return true;
+				}
+
+		system("cls");
+		std::cout << "Nieprawidlowy login/haslo";
+
+	return false;
+
 }
 
 menu::menu() {

@@ -35,6 +35,8 @@ public:
 	int getID();
 
 	std::string getUsername();
+
+	user* u_self();
 };
 
 #endif

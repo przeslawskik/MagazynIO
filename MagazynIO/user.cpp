@@ -27,8 +27,8 @@ bool user::findLogin(std::string login) {
 }
 
 bool user::checkPassword(std::string pass) {
-	// TODO - implement user::checkPassword
-	throw "Not yet implemented";
+	if (pass == this->password)return true;
+	return false;
 }
 
 void user::changeData(std::string password, int phonenr, std::string addres, std::string lastname, std::string name) {
@@ -44,3 +44,8 @@ int user::getID() {
 std::string user::getUsername() {
 	return this->username;
 }
+
+
+user* user::u_self() {
+	return this;
+};
