@@ -42,6 +42,7 @@ void menu::begmloop(int inmopt) {
 			return;
 			break;
 		case 2:
+			system("cls");
 			return registerUser();
 			break;
 		case 3:
@@ -107,7 +108,7 @@ void menu::mloop(int inmopt) {
 
 	system("cls");
 
-		return mloop(inmopt);
+	return mloop(inmopt);
 }
 
 void menu::takeOrder() {
@@ -155,7 +156,7 @@ void menu::registerUser() {
 				std::cout << "Wpisz haslo: ";
 				std::string pas = "";
 				char c; 
-				while (c = _getch() != 13)
+				while ((c = _getch()) != 13)
 					pas += c;
 
 				userstab.push_back(user(im,na,ad,tel,pes,"user", un, pas));
