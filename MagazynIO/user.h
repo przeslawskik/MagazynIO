@@ -26,7 +26,7 @@ public:
 
 	user(std::string n, std::string ln, std::string adr, int phn, int ssn, std::string per, std::string log, std::string pass);
 
-	//bool findLogin(std::string login);
+	bool findLogin(std::string login);
 
 	bool checkPassword(std::string pass);
 

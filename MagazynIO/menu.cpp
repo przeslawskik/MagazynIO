@@ -160,6 +160,9 @@ void menu::registerUser() {
 					pas += c;
 
 				userstab.push_back(user(im,na,ad,tel,pes,"user", un, pas));
+				system("cls");
+				std::cout << "Konto utworzenoe pomyslnie\n";
+				return;
 			}
 		}
 
