@@ -15,15 +15,15 @@ std::string user::checkPermissions() {
 	throw "Not yet implemented";
 }
 
-void user::User(std::string n, std::string ln, std::string adr, int phn, int ssn, std::string per, std::string log, std::string pass) {
+user::user(std::string n, std::string ln, std::string adr, int phn, int ssn, std::string per, std::string log, std::string pass) {
 	// TODO - implement user::User
 	throw "Not yet implemented";
 }
 
-bool user::findLogin(std::string login) {
+//bool user::findLogin(std::string login) {
 	// TODO - implement user::findLogin
-	throw "Not yet implemented";
-}
+//	throw "Not yet implemented";
+//}
 
 bool user::checkPassword(std::string pass) {
 	// TODO - implement user::checkPassword

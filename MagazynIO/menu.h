@@ -2,11 +2,16 @@
 #define MENU_H
 
 #include "user.h"
+#include <conio.h>
+#include <Windows.h>
+#include <vector>
 
 class menu {
 
 private:
 	user* userloggedin = nullptr;
+
+	std::vector<user> userstab;
 
 public:
 	void makeOrder();

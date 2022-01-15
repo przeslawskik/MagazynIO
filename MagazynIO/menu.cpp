@@ -1,6 +1,4 @@
 #include "menu.h"
-#include <conio.h>
-#include <Windows.h>
 
 void menu::makeOrder() {
 	// TODO - implement menu::makeOrder
@@ -44,7 +42,7 @@ void menu::begmloop(int inmopt) {
 			return;
 			break;
 		case 2:
-			return; //register
+			return registerUser();
 			break;
 		case 3:
 			exit(0);
@@ -119,10 +117,52 @@ void menu::takeOrder() {
 
 void menu::registerUser() {
 
+	std::cout << "Rejestracja uzytkownika" << std::endl;
+	
+	std::cout << "Wpisz Imie: ";
+		std::string im;
+		std::cin >> im;
 
+	std::cout << "Wpisz Nazwisko: ";
+		std::string na;
+		std::cin >> na;
 
-	// TODO - implement menu::registerUser
-	throw "Not yet implemented";
+	std::cout << "Podaj adres: ";
+		std::string ad;
+		std::cin >> ad;
+
+	std::cout << "Podaj numer telefonu: ";
+		int tel;
+		std::cin >> tel;
+
+	std::cout << "Podaj pesel: ";
+		int pes;
+		std::cin >> pes;
+
+		bool endloop = true;
+		while (true) {
+			endloop = true;
+			std::cout << "Wpisz nazwe uzytkownika: ";
+			std::string un;
+			std::cin >> un;
+
+			for(int i=0;i<userstab.size();i++)
+				if (userstab[i].getUsername() == un) {
+					std::cout << "Nazwa uzytkownika jest juz zajeta\n";
+					endloop = false;
+				}
+			if (endloop) {
+				std::cout << "Wpisz haslo: ";
+				std::string pas = "";
+				char c; 
+				while (c = _getch() != 13)
+					pas += c;
+
+				userstab.push_back(user(im,na,ad,tel,pes,"user", un, pas));
+			}
+		}
+
+	
 }
 
 void menu::makeDelivery() {
