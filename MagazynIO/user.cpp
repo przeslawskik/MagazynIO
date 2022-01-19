@@ -6,13 +6,11 @@ std::string user::getName() {
 }
 
 int user::getPhone() {
-	// TODO - implement user::getPhone
-	throw "Not yet implemented";
+	return this->phone_number;
 }
 
 std::string user::checkPermissions() {
-	// TODO - implement user::checkPermissions
-	throw "Not yet implemented";
+	return this->permissions;
 }
 
 user::user(std::string n, std::string ln, std::string adr, int phn, int ssn, std::string per, std::string log, std::string pass)
@@ -22,7 +20,7 @@ user::user(std::string n, std::string ln, std::string adr, int phn, int ssn, std
 {}
 
 bool user::findLogin(std::string login) {
-	if (login == this->username)return true;
+	 if (login == this->username)return true;
 	return false;
 }
 
@@ -32,13 +30,15 @@ bool user::checkPassword(std::string pass) {
 }
 
 void user::changeData(std::string password, int phonenr, std::string addres, std::string lastname, std::string name) {
-	// TODO - implement user::changeData
-	throw "Not yet implemented";
+	 this->password = password;
+	 this->phone_number = phonenr;
+	 this->address = addres;
+	 this->last_name = lastname;
+	 this->name = name;
 }
 
 int user::getID() {
-	// TODO - implement user::getID
-	throw "Not yet implemented";
+	return this->userID;
 }
 
 std::string user::getUsername() {
