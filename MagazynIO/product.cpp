@@ -1,10 +1,9 @@
 #include "product.h"
 #include <iostream>
 
-void product::Product(std::string nam, int coun, std::string spec, std::string desc) {
-	// TODO - implement product::Product
-	throw "Not yet implemented";
-}
+product::product(std::string nam, int coun, std::string spec, std::string desc,float siz) 
+	:productName(nam), count(coun), specification(spec),description(desc),productSize(siz)
+{}
 
 void product::changeCount(int val) {
 	// TODO - implement product::changeCount
@@ -20,6 +19,11 @@ std::string product::getProductInfo() {
 	// TODO - implement product::getProductInfo
 	throw "Not yet implemented";
 }
+
+
+int product::getCount() {
+	return this->count;
+};
 
 int product::getID() {
 	// TODO - implement product::getID

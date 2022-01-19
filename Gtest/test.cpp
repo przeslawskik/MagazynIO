@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "MagazynIO/user.cpp"
+#include "MagazynIO/product.cpp"
 
 namespace UserTest {
 	TEST(findlogin, loginWrong) {
@@ -24,4 +25,22 @@ namespace UserTest {
 		EXPECT_EQ(testuser1.checkPassword("wrongpassword"), false);
 		EXPECT_TRUE(true);
 	}
+}
+
+namespace ProductTest {
+
+	TEST(changeCount,correctChangeVal) {
+		product p1 = product("sruba",1000,"dlugosc 100mm","metalowa",0.01);
+		p1.changeCount(1500);
+		EXPECT_EQ(p1.getCount(),1500);
+		EXPECT_TRUE(true);
+	}
+
+	TEST(getAreaOfProduct, totalProductArea) {
+		product p1 = product("sruba", 1000, "dlugosc 100mm", "metalowa", 0.01);
+		EXPECT_EQ(p1.getAreaOfProduct(), 10.0);
+		EXPECT_TRUE(true);
+
+	}
+
 }
