@@ -6,18 +6,20 @@ product::product(std::string nam, int coun, std::string spec, std::string desc,f
 {}
 
 void product::changeCount(int val) {
-	// TODO - implement product::changeCount
-	throw "Not yet implemented";
+	this->count = val;
 }
 
 float product::getAreaOfProduct() {
-	// TODO - implement product::getAreaOfProduct
-	throw "Not yet implemented";
+	return this->productSize * this->count;
 }
 
 std::string product::getProductInfo() {
-	// TODO - implement product::getProductInfo
-	throw "Not yet implemented";
+	std::string s = "";
+	s += this->productName+" ";
+	s += this->count+" ";
+	s += this->specification+" ";
+	s += this->description;
+	return s;
 }
 
 
@@ -26,6 +28,5 @@ int product::getCount() {
 };
 
 int product::getID() {
-	// TODO - implement product::getID
-	throw "Not yet implemented";
+	return this->productID;
 }

@@ -23,9 +23,6 @@ public:
 
 	int getCount();
 
-	/**
-	 * returning productSize*count
-	 */
 	float getAreaOfProduct();
 
 	std::string getProductInfo();
