@@ -22,6 +22,14 @@ public:
 
 	int getPhone();
 
+	int getSSN();
+
+	std::string getAddres();
+
+	std::string getPassword();
+
+	std::string getLastName();
+
 	std::string checkPermissions();
 
 	user(std::string n, std::string ln, std::string adr, int phn, int ssn, std::string per, std::string log, std::string pass);

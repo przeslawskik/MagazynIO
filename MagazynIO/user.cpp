@@ -9,6 +9,22 @@ int user::getPhone() {
 	return this->phone_number;
 }
 
+int user::getSSN() {
+	return this->social_security_number;
+}
+
+std::string user::getAddres() {
+	return this->address;
+}
+
+std::string user::getPassword() {
+	return this->password;
+}
+
+std::string user::getLastName() {
+	return this->last_name;
+}
+
 std::string user::checkPermissions() {
 	return this->permissions;
 }

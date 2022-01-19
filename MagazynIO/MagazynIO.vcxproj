@@ -153,6 +153,9 @@
     <ClInclude Include="user.h" />
     <ClInclude Include="warehouse.h" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="u_data" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

@@ -51,24 +51,23 @@ menu::menu() {
 }
 
 menu::~menu() {
-	/*
-	* 
+	
+
 	file.open(fname, std::ios::out);
 
-	for (int i = 0; i < userstab.size(), i++) {
+	for (int i = 0; i < userstab.size(); i++) {
 		file << userstab[i].getName()<<std::endl;
-		file << userstab[i].getLast_Name() <<std::endl;
+		file << userstab[i].getLastName() <<std::endl;
 		file << userstab[i].getAddres() <<std::endl;
 		file << userstab[i].getPhone() <<std::endl;
 		file << userstab[i].getSSN() <<std::endl;
 		file << userstab[i].checkPermissions() <<std::endl;
+		file << userstab[i].getUsername() << std::endl;
 		file << userstab[i].getPassword() <<std::endl;
-		file << userstab[i].getUsername() <<std::endl;
 	}
 
 	file.close();
 
-	*/
 }
 
 void menu::begmloop(int inmopt) {
@@ -152,6 +151,7 @@ void menu::mloop(int inmopt) {
 			break;
 
 		case 6:
+			this->~menu();
 			exit(0);
 			break;
 		}
