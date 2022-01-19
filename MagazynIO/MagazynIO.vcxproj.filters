@@ -51,4 +51,7 @@
       <Filter>Pliki źródłowe</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="u_data" />
+  </ItemGroup>
 </Project>

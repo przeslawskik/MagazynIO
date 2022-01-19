@@ -12,7 +12,7 @@ private:
 	int phone_number;
 	int social_security_number;
 	std::string permissions;
-	std::string login;
+	//std::string login;
 	std::string password;
 	int userID;
 	std::string username;
@@ -22,9 +22,17 @@ public:
 
 	int getPhone();
 
+	int getSSN();
+
+	std::string getAddres();
+
+	std::string getPassword();
+
+	std::string getLastName();
+
 	std::string checkPermissions();
 
-	void User(std::string n, std::string ln, std::string adr, int phn, int ssn, std::string per, std::string log, std::string pass);
+	user(std::string n, std::string ln, std::string adr, int phn, int ssn, std::string per, std::string log, std::string pass);
 
 	bool findLogin(std::string login);
 
@@ -35,6 +43,8 @@ public:
 	int getID();
 
 	std::string getUsername();
+
+	user* u_self();
 };
 
 #endif

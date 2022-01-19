@@ -6,9 +6,11 @@ int main() {
 
 	menu* m = new menu();
 
+	m->begmloop();
+
 	while (!m->login());
 
-		m->mloop();
+	m->mloop();
 
-		return 0;
+	return 0;
 }
