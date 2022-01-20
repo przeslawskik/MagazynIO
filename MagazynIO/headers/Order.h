@@ -3,18 +3,21 @@
 
 #include "user.h"
 #include "product.h"
+#include <vector>
 
 class Order {
 
 private:
-	user* whoordered;
-	product** items;
-	int* cout;
+
+	std::vector<user> whoordered;
+	std::vector<std::vector<product>> items;
+
+	//redundant variable - int count - deleted: "class product" has member "int count"
 
 public:
-	Order(user* whoordered, product** items, int* cout);
+	Order(std::vector<user> customers, std::vector<std::vector<product>> items);
 
-	int getID();
+	int getOrderID();
 };
 
 #endif

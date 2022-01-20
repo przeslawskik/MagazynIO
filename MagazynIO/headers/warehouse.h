@@ -1,10 +1,15 @@
 #ifndef WAREHOUSE_H
 #define WAREHOUSE_H
 
+#include "product.h"
+#include <vector>
+
 class warehouse {
 
 private:
 	float warehouse_space;
+
+	std::vector<product> 
 
 public:
 
@@ -13,8 +18,9 @@ public:
 
 	bool ifFull();
 
-	void showAllProducts();
-
+	//uzywamy std::vector zeby latwiej je bylo zliczac, sortowac itd.
+	std::vector<product> showAllProducts();
+ 
 	void stockTaking();
 
 	void deliveryService();
