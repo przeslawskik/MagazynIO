@@ -9,7 +9,7 @@ class warehouse {
 private:
 	float warehouse_space;
 
-	std::vector<product> 
+	std::vector<product> products;
 
 public:
 
@@ -22,6 +22,7 @@ public:
 	std::vector<product> showAllProducts();
  
 	void stockTaking();
+	//tej funckji nie ma w zadnym diagramie
 
 	void deliveryService();
 

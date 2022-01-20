@@ -1,18 +1,24 @@
 #include "/headers/warehouse.h"
 
 void warehouse::changeSpace(float sp) {
-	// TODO - implement warehouse::changeSpace
-	throw "Not yet implemented";
+	warehouse_space  = sp;
 }
 
 bool warehouse::ifFull() {
-	// TODO - implement warehouse::ifFull
-	throw "Not yet implemented";
+	float product_surface =0.0f;
+
+	for(product i : products){
+		product_surface += i.getAreaOfProduct();
+	}
+
+	if(product_surface >= warehouse_space){
+		return true;
+	}
+	else return false;
 }
 
-void warehouse::showAllProducts() {
-	// TODO - implement warehouse::showAllProducts
-	throw "Not yet implemented";
+std::vector<product> warehouse::showAllProducts() {
+	return products;
 }
 
 void warehouse::stockTaking() {
@@ -21,8 +27,8 @@ void warehouse::stockTaking() {
 }
 
 void warehouse::deliveryService() {
-	// TODO - implement warehouse::deliveryService
-	throw "Not yet implemented";
+	
+	std::cout<< "Zamówienie przejęte przez kuriera.\n";	
 }
 
 bool warehouse::OrderSeq(int productsID[], int productsCnt[], int user_id) {
