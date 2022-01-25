@@ -5,7 +5,6 @@ Order::Order(user* whoordered, product** items, int* cout) {
 	throw "Not yet implemented";
 }
 
-int Order::getID() {
-	// TODO - implement Order::getID
-	throw "Not yet implemented";
+int Order::getID(int orderID) {
+	return this->orderID;
 }
