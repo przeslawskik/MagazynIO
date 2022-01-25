@@ -17,13 +17,10 @@ private:
 public:
 	product(std::string nam, int coun, std::string spec, std::string desc, float size);
 
-	//void ~Product();
+	~product();
 
 	void changeCount(int val);
 
-	/**
-	 * returning productSize*count
-	 */
 	float getAreaOfProduct();
 
 	std::string getProductInfo(std::string nam, int coun, std::string spec, std::string desc, float size, int ID);

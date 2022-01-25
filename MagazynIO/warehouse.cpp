@@ -1,8 +1,7 @@
 #include "warehouse.h"
 
 void warehouse::changeSpace(float sp) {
-	// TODO - implement warehouse::changeSpace
-	throw "Not yet implemented";
+	this->warehouse_space += sp;
 }
 
 bool warehouse::ifFull() {
