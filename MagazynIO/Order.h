@@ -7,6 +7,7 @@
 class Order {
 
 private:
+	int orderID;
 	user* whoordered;
 	product** items;
 	int* cout;
@@ -14,7 +15,7 @@ private:
 public:
 	Order(user* whoordered, product** items, int* cout);
 
-	int getID();
+	int getID(int orderID);
 };
 
 #endif

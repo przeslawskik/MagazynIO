@@ -1,18 +1,24 @@
 #include "warehouse.h"
 
 void warehouse::changeSpace(float sp) {
-	// TODO - implement warehouse::changeSpace
-	throw "Not yet implemented";
+	this->warehouse_space += sp;
 }
 
 bool warehouse::ifFull() {
-	// TODO - implement warehouse::ifFull
-	throw "Not yet implemented";
+	float zajeta_przestrzen=0;
+	for (int i = 0, i < product_tab.size().i++)	//tutaj chyba tworzenie pliku z produktami by siê przyda³o mieæ
+	{
+		zajeta_przestrzen += product_tab[i].getAreaOfProduct();
+	}
+	if (zajeta_przestrzen < warehouse_space) return false;
+	return true;
 }
 
 void warehouse::showAllProducts() {
-	// TODO - implement warehouse::showAllProducts
-	throw "Not yet implemented";
+	for (int i = 0, i < product_tab.size(), i++) //tutaj chyba tworzenie pliku z produktami by siê przyda³o mieæ
+	{
+		product_tab[i].getProductInfo();
+	}
 }
 
 void warehouse::stocktaking() {
