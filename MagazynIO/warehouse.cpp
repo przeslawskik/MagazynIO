@@ -10,7 +10,7 @@ bool warehouse::ifFull() {
 }
 
 void warehouse::showAllProducts() {
-	for (int i = 0, i < wielkosc_tablicy_produktow, i++)
+	for (int i = 0, i < wielkosc_tablicy_produktow, i++) //tutaj chyba tworzenie pliku z produktami by siê przyda³o mieæ
 	{
 		
 	}
