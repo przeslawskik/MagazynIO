@@ -22,9 +22,8 @@ public:
 
 	void stocktaking();
 
-	void deliveryService();
+	void deliveryService(int pID, int count);
 
-	bool OrderSeq(int productsID[], int productsCnt[], int userID);
 };
 
 #endif

@@ -1,4 +1,5 @@
 #include "warehouse.h"
+#include <conio.h>
 
 void warehouse::changeSpace(float sp) {
 	this->warehouse_space += sp;
@@ -22,16 +23,33 @@ void warehouse::showAllProducts() {
 }
 
 void warehouse::stocktaking() {
-	// TODO - implement warehouse::stocktaking
-	throw "Not yet implemented";
+	for (size_t i = 0; i < products.size(); i++)
+	{
+		products[i].getProductInfo();
+		std::cout << "Czy chcesz zmienic ilosc danego produktu?" << std::endl << "y - tak, n - nie" << std::endl;
+		char odp = _getch();
+
+		if (odp == 'y' || odp == 'Y' || odp == 89 || odp == 121) {
+			int l = 0;
+			std:: cout << "Wprowadz nowa ilosc produktu: ";
+			std::cin >> l;
+			products[i].changeCount(l);
+			system("cls");
+		}
+		else if (odp == 'n' || odp == 'N' || odp == 78 || odp == 110) {
+			system("cls");
+		}
+		else
+		{
+			system("cls");
+			break;
+		}
+	}
 }
 
-void warehouse::deliveryService() {
-	// TODO - implement warehouse::deliveryService
-	throw "Not yet implemented";
+void warehouse::deliveryService(int pID, int count) {
+	for (int i = 0; i < products.size(); i++)
+		if (products[i].getID() == pID)
+				products[i].changeCount(count);
 }
 
-bool warehouse::OrderSeq(int productsID[], int productsCnt[], int userID) {
-	// TODO - implement warehouse::OrderSeq
-	throw "Not yet implemented";
-}

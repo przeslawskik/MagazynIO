@@ -27,6 +27,6 @@ int product::getCount() {
 	return this->count;
 }
 
-int product::getID(int ID) {
+int product::getID() {
 	return this->productID;
 }

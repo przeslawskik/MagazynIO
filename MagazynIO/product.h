@@ -12,7 +12,6 @@ private:
 	std::string description;
 	float productSize;
 	int productID;
-	int inOrder[];
 
 public:
 	product(std::string nam, int coun, std::string spec, std::string desc, float size);
@@ -25,7 +24,8 @@ public:
 
 	std::string getProductInfo();
 
-	int getID(int ID);
+	int getID();
+
 };
 
 #endif
