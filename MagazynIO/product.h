@@ -14,7 +14,7 @@ private:
 	int productID;
 
 public:
-	product(std::string nam, int coun, std::string spec, std::string desc, float size);
+	product(std::string nam, int coun, std::string spec, std::string desc, float size, int ID);
 
 	void changeCount(int val);
 

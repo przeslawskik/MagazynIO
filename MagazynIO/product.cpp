@@ -1,8 +1,8 @@
 #include "product.h"
 #include <iostream>
 
-product::product(std::string nam, int coun, std::string spec, std::string desc, float size) 
-	:productName(nam), count(coun), specification(spec), description(desc), productSize(size)
+product::product(std::string nam, int coun, std::string spec, std::string desc, float size, int ID) 
+	:productName(nam), count(coun), specification(spec), description(desc), productSize(size), productID(ID)
 {}
 
 void product::changeCount(int val) {
