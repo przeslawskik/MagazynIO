@@ -33,7 +33,7 @@ public:
 
 	void takeOrder();
 
-	void registerUser();
+	void registerUser(std::string perm = "user");
 
 	void makeDelivery();
 
