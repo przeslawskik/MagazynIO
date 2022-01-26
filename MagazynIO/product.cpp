@@ -5,23 +5,27 @@ product::product(std::string nam, int coun, std::string spec, std::string desc, 
 	:productName(nam), count(coun), specification(spec), description(desc), productSize(size)
 {}
 
-
 void product::changeCount(int val) {
 	this->count = val;
 }
 
 float product::getAreaOfProduct() {
-	return ((this->count) * (this->productSize));
+
+	return this->productSize * this->count;
 }
 
-std::string product::getProductInfo(std::string nam, int coun, std::string spec, std::string desc, float size, int ID) {
-	std::cout << "Nazwa: " << this->productName << std::endl;
-	std::cout << "Ilosc: " << this->count << std::endl;
-	std::cout << "Specyfikacja: " << this->specification << std::endl;
-	std::cout << "Opis: " << this->description << std::endl;
-	std::cout << "Wielkosc: " << this->productSize << std::endl;
-	std::cout << "Przestrzen w magazynie: " << getAreaOfProduct << std::endl;
-	std::cout << "ID produktu: " << this->productID << std::endl;
+std::string product::getProductInfo() {
+	std::string s = "";
+	s += this->productName+" ";
+	s += this->count+" ";
+	s += this->specification+" ";
+	s += this->description;
+	return s;
+}
+
+
+int product::getCount() {
+	return this->count;
 }
 
 int product::getID(int ID) {
