@@ -1,27 +1,29 @@
-#include "product.h"
+#include "headers/product.h"
 #include <iostream>
 
-void product::Product(std::string nam, int coun, std::string spec, std::string desc) {
-	// TODO - implement product::Product
-	throw "Not yet implemented";
-}
+product::product(std::string nam, int coun, std::string spec, std::string desc, float size) 
+	:productName(nam), count(coun), specification(spec), description(desc), productSize(size)
+{}
+
 
 void product::changeCount(int val) {
-	// TODO - implement product::changeCount
-	throw "Not yet implemented";
+	this->count = val;
 }
 
 float product::getAreaOfProduct() {
-	// TODO - implement product::getAreaOfProduct
-	throw "Not yet implemented";
+	return ((this->count) * (this->productSize));
 }
 
 std::string product::getProductInfo() {
-	// TODO - implement product::getProductInfo
-	throw "Not yet implemented";
+	std::cout << "Nazwa: " << this->productName << std::endl;
+	std::cout << "Ilosc: " << this->count << std::endl;
+	std::cout << "Specyfikacja: " << this->specification << std::endl;
+	std::cout << "Opis: " << this->description << std::endl;
+	std::cout << "Wielkosc: " << this->productSize << std::endl;
+	std::cout << "Przestrzen w magazynie: " << getAreaOfProduct << std::endl;
+	std::cout << "ID produktu: " << this->productID << std::endl;
 }
 
-int product::getID() {
-	// TODO - implement product::getID
-	throw "Not yet implemented";
+int product::getID(int ID) {
+	return this->productID;
 }
