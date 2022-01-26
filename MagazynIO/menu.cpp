@@ -145,6 +145,7 @@ void menu::mloop(int inmopt) {
 			break;
 
 		case 4:
+			changeUserData();
 			break;
 
 		case 5:
@@ -169,7 +170,7 @@ void menu::takeOrder() {
 	throw "Not yet implemented";
 }
 
-void menu::registerUser() {
+void menu::registerUser(std::string perm) {
 
 	std::cout << "Rejestracja uzytkownika" << std::endl;
 	
@@ -212,7 +213,7 @@ void menu::registerUser() {
 				while ((c = _getch()) != 13)
 					pas += c;
 
-				userstab.push_back(user(im,na,ad,tel,pes,"user", un, pas));
+				userstab.push_back(user(im,na,ad,tel,pes,perm, un, pas));
 				system("cls");
 				std::cout << "Konto utworzenoe pomyslnie\n";
 				return;
@@ -228,8 +229,85 @@ void menu::makeDelivery() {
 }
 
 void menu::changeUserData() {
-	// TODO - implement menu::changeUserData
-	throw "Not yet implemented";
+	if (userloggedin->checkPermissions() == "employee") {
+		system("cls");
+		std::cout << "Odmowa dostepu\n";
+		_getch();
+	}
+	else if (userloggedin->checkPermissions() == "user") {
+		system("cls");
+		std::cout << "Wpisz nowe haslo: ";
+		std::string s = "";
+		char c;
+		while ((c = _getch()) != 13)
+			s += c;
+		userloggedin->changeData(s, userloggedin->getPhone(), userloggedin->getAddres(), userloggedin->getLastName(), userloggedin->getName());
+	}
+	else if (userloggedin->checkPermissions() == "admin") {
+		system("cls");
+		char c;
+		std::cout << "Wcisnij n aby stworzyc nowego uzytkownika z aby zarzadzac obecnymi";
+		while (((c = _getch()) != 'n') && (c != 'z'));
+		if (c == 'n') {
+			system("cls");
+			std::cout << "podaj uprawniwnienia uzytkownika: ";
+			std::string s = "";
+			char c2;
+			while ((c2 = _getch()) != 13)
+			s += c2;
+			registerUser(s);
+		}
+		else {
+			char c2=0;
+			int wh=0;
+			do {
+				system("cls");
+				if (c2 == 'w')wh--;
+				if (c2 == 's')wh++;
+				if (wh < 0)wh = userstab.size() - 1;
+				if (wh > userstab.size() - 1)wh = 0;
+				for (int i = 0; i < userstab.size(); i++)
+				{
+					std::cout << userstab[i].getName() << " " << userstab[i].getLastName() << " "
+						<< userstab[i].getAddres() << " " << userstab[i].getPhone() << " "
+						<< userstab[i].getSSN() << " " << userstab[i].checkPermissions() << " "
+						<< userstab[i].getPassword() << " " << userstab[i].getUsername() << " "
+						<< (wh == i ? " <<\n" : "\n");
+				}
+			} while ((c2=_getch())!=13);
+
+			std::cout << "Zmiana danych uzytkownika uzytkownika" << std::endl;
+
+			std::cout << "Wpisz Imie: ";
+			std::string im;
+			std::cin >> im;
+
+			std::cout << "Wpisz Nazwisko: ";
+			std::string na;
+			std::cin >> na;
+
+			std::cout << "Podaj adres: ";
+			std::string ad;
+			std::cin >> ad;
+
+			std::cout << "Podaj numer telefonu: ";
+			int tel;
+			std::cin >> tel;
+			
+					std::cout << "Wpisz haslo: ";
+					std::string pas = "";
+					char c;
+					while ((c = _getch()) != 13)
+						pas += c;
+
+					userstab[wh].changeData(pas,tel,ad,na,im);
+					system("cls");
+					std::cout << "pomyslna zmiana danych\n";
+					return;
+
+
+		}
+	}
 }
 
 void menu::warhouseMenage() {
