@@ -1,4 +1,4 @@
-#include "product.h"
+#include "headers/product.h"
 #include <iostream>
 
 product::product(std::string nam, int coun, std::string spec, std::string desc, float size) 

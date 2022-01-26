@@ -1,5 +1,5 @@
-#include "warehouse.h"
-#include "product.h"
+#include "headers/warehouse.h"
+#include "headers/product.h"
 #include <iostream>
 #include <conio.h>
 
