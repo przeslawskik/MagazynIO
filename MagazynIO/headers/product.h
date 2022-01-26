@@ -6,26 +6,29 @@
 class product {
 
 private:
-	std::string productName;
+	std::string product_name;
 	int count;
 	std::string specification;
 	std::string description;
-	float productSize;
-	int productID;
-	int inOrder[];
+	float product_size;
+	int product_id;
+	int in_order[];
 
 public:
-	product(std::string nam, int coun, std::string spec, std::string desc, float size);
+	void Product(std::string nam, int coun, std::string spec, std::string desc);
 
-	~product();
+	//void ~Product();
 
 	void changeCount(int val);
 
+	/**
+	 * returning product_size*count
+	 */
 	float getAreaOfProduct();
 
 	std::string getProductInfo();
 
-	int getID(int ID);
+	int getID();
 };
 
 #endif
