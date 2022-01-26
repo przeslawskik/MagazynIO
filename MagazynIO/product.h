@@ -34,7 +34,7 @@ public:
 
 	int getID();
 
-	product* product_self()
+	product* product_self();
 };
 
 #endif

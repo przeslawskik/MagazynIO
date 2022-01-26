@@ -133,11 +133,12 @@ void menu::mloop(int inmopt) {
 		switch (inmopt) {
 		case 1:
 			break;
-
+			makeOrder();
 		case 2:
 			break;
-
+			takeOrder();
 		case 3:
+			makeDelivery();
 			break;
 
 		case 4:
@@ -145,8 +146,8 @@ void menu::mloop(int inmopt) {
 			break;
 
 		case 5:
+			warhouseMenage();
 			break;
-
 		case 6:
 			this->~menu();
 			exit(0);
@@ -323,6 +324,7 @@ void menu::warhouseMenage() {
 				system("cls");
 				std::string n, s, o;
 				int il;
+				float sp;
 					std::cout << "Podaj nazwe";
 					std::cin >> n;
 					std::cout << "Podaj ilosc";
@@ -331,7 +333,10 @@ void menu::warhouseMenage() {
 					std::cin >> s;
 					std::cout << "Podaj opis";
 					std::cin >> o;
-				//w1.products.pushback(n,il,s,o);
+					std::cout << "Podaj przestrzen";
+					std::cin >> sp;
+					w1.products.push_back(product(n, il, s, o, sp, w1.products.size() + 1));
+
 			}
 	}
 	else
@@ -364,14 +369,14 @@ void menu::makeOrder() {
 			std::cin >> c;
 				count.push_back(c);
 				w1.deliveryService(pID, (-1) * c);
-				//for (int i = 0; i < w1.products.size(); i++)
-			//	if (w1.products[i].getID() == pID)
-			//		products.pushback(*w1.products[i]);
+				for (int i = 0; i < w1.products.size(); i++)
+				if (w1.products[i].getID() == pID)
+				//products.push_back(w1.products[i]);
 			std::cout << "wcisnij enter aby zakonczyc zmiane dowolny klawisz aby wybierac dalej produkty\n";
 
 		}
 
-		//w1.OrderSeq.pushback(Order(userloggedin,products,count));
+		w1.orders.push_back(Order(userloggedin,products,count));
 	}
 	else
 	{

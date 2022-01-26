@@ -8,6 +8,8 @@
 
 class warehouse {
 
+	friend class menu;
+
 private:
 	float warehouse_space;
 	std::vector<product> products;

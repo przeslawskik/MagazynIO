@@ -1,6 +1,7 @@
 #include "warehouse.h"
 #include "product.h"
 #include <conio.h>
+#include <string>
 
 warehouse::warehouse() {
 
@@ -11,7 +12,7 @@ warehouse::warehouse() {
 	while (file >> s[0]) {
 		for (int i = 1; i < 6; i++)file >> s[i];
 
-		products.push_back(product(s[0], s[1], s[2], s[3], s[4], s[5] ));
+		products.push_back(product(s[0], std::stoi(s[1]), s[2], s[3], std::stoi(s[4]), std::stoi(s[5])));
 	}
 
 	file.close();
