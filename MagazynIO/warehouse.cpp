@@ -8,7 +8,7 @@ bool warehouse::ifFull() {
 	float zajeta_przestrzen=0;
 	for (int i = 0, i < product_tab.size().i++)	//tutaj chyba tworzenie pliku z produktami by siê przyda³o mieæ
 	{
-		zajeta_przestrzen += pproduct_tab[i].getAreaOfProduct();
+		zajeta_przestrzen += product_tab[i].getAreaOfProduct();
 	}
 	if (zajeta_przestrzen < warehouse_space) return false;
 	return true;
