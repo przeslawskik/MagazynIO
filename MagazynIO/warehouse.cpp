@@ -5,12 +5,17 @@ void warehouse::changeSpace(float sp) {
 }
 
 bool warehouse::ifFull() {
-	// TODO - implement warehouse::ifFull
-	throw "Not yet implemented";
+	float zajeta_przestrzen=0;
+	for (int i = 0, i < product_tab.size().i++)	//tutaj chyba tworzenie pliku z produktami by siê przyda³o mieæ
+	{
+		zajeta_przestrzen += getAreaOfProduct;
+	}
+	if (zajeta_przestrzen < warehouse_space) return false;
+	return true;
 }
 
 void warehouse::showAllProducts() {
-	for (int i = 0, i < wielkosc_tablicy_produktow, i++) //tutaj chyba tworzenie pliku z produktami by siê przyda³o mieæ
+	for (int i = 0, i < product_tab.size(), i++) //tutaj chyba tworzenie pliku z produktami by siê przyda³o mieæ
 	{
 		
 	}
