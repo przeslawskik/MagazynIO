@@ -16,7 +16,7 @@ private:
 public:
 	Order(user* whoordered, std::vector<product*> it, std::vector<int> counts);
 
-	int getID(int orderID);
+	int getID();
 };
 
 #endif

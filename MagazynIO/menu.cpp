@@ -430,8 +430,9 @@ void menu::takeOrder() {
 		std::cout << "Wpisz id orderu do wykonania";
 		std::cin >> ordID;
 
-		//for (int i = 0; i < w1.orders.size(); i++)
-		//if(w1.orders[i].getID()==ordID)w1.orders[i].completeOrder();
+		for (int i = 0; i < w1.orders.size(); i++)
+			if (w1.orders[i].getID() == ordID) 
+				w1.orders.erase(w1.orders.begin()+i);
 
 	}
 	else
