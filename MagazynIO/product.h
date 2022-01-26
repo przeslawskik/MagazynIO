@@ -15,19 +15,20 @@ private:
 	int inOrder[];
 
 public:
-	product(std::string nam, int coun, std::string spec, std::string desc, float siz);
+	product(std::string nam, int coun, std::string spec, std::string desc, float size);
 
-	//void ~Product();
+
+	~product();
 
 	void changeCount(int val);
 
 	int getCount();
-
+  
 	float getAreaOfProduct();
 
-	std::string getProductInfo();
+	std::string getProductInfo(std::string nam, int coun, std::string spec, std::string desc, float size, int ID);
 
-	int getID();
+	int getID(int ID);
 };
 
 #endif

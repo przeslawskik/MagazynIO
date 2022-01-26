@@ -1,8 +1,8 @@
 #include "product.h"
 #include <iostream>
 
-product::product(std::string nam, int coun, std::string spec, std::string desc,float siz) 
-	:productName(nam), count(coun), specification(spec),description(desc),productSize(siz)
+product::product(std::string nam, int coun, std::string spec, std::string desc, float size) 
+	:productName(nam), count(coun), specification(spec), description(desc), productSize(size)
 {}
 
 void product::changeCount(int val) {
@@ -10,6 +10,7 @@ void product::changeCount(int val) {
 }
 
 float product::getAreaOfProduct() {
+
 	return this->productSize * this->count;
 }
 
@@ -25,8 +26,8 @@ std::string product::getProductInfo() {
 
 int product::getCount() {
 	return this->count;
-};
+}
 
-int product::getID() {
+int product::getID(int ID) {
 	return this->productID;
 }

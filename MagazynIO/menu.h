@@ -2,6 +2,8 @@
 #define MENU_H
 
 #include "user.h"
+#include "warehouse.h"
+#include "product.h"
 #include <conio.h>
 #include <Windows.h>
 #include <vector>
@@ -18,6 +20,8 @@ private:
 	std::fstream file;
 	std::string fname = "u_data";
 
+	warehouse w1;
+
 public:
 	void makeOrder();
 
@@ -33,7 +37,7 @@ public:
 
 	void takeOrder();
 
-	void registerUser();
+	void registerUser(std::string perm = "user");
 
 	void makeDelivery();
 

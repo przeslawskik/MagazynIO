@@ -1,9 +1,5 @@
 #include "menu.h"
 
-void menu::makeOrder() {
-	// TODO - implement menu::makeOrder
-	throw "Not yet implemented";
-}
 
 bool menu::login() {
 
@@ -145,6 +141,7 @@ void menu::mloop(int inmopt) {
 			break;
 
 		case 4:
+			changeUserData();
 			break;
 
 		case 5:
@@ -164,12 +161,9 @@ void menu::mloop(int inmopt) {
 	return mloop(inmopt);
 }
 
-void menu::takeOrder() {
-	// TODO - implement menu::takeOrder
-	throw "Not yet implemented";
-}
 
-void menu::registerUser() {
+
+void menu::registerUser(std::string perm) {
 
 	std::cout << "Rejestracja uzytkownika" << std::endl;
 	
@@ -212,7 +206,7 @@ void menu::registerUser() {
 				while ((c = _getch()) != 13)
 					pas += c;
 
-				userstab.push_back(user(im,na,ad,tel,pes,"user", un, pas));
+				userstab.push_back(user(im,na,ad,tel,pes,perm, un, pas));
 				system("cls");
 				std::cout << "Konto utworzenoe pomyslnie\n";
 				return;
@@ -222,17 +216,224 @@ void menu::registerUser() {
 	
 }
 
-void menu::makeDelivery() {
-	// TODO - implement menu::makeDelivery
-	throw "Not yet implemented";
-}
+
 
 void menu::changeUserData() {
-	// TODO - implement menu::changeUserData
-	throw "Not yet implemented";
+	if (userloggedin->checkPermissions() == "employee") {
+		system("cls");
+		std::cout << "Odmowa dostepu\n";
+		_getch();
+	}
+	else if (userloggedin->checkPermissions() == "user") {
+		system("cls");
+		std::cout << "Wpisz nowe haslo: ";
+		std::string s = "";
+		char c;
+		while ((c = _getch()) != 13)
+			s += c;
+		userloggedin->changeData(s, userloggedin->getPhone(), userloggedin->getAddres(), userloggedin->getLastName(), userloggedin->getName());
+	}
+	else if (userloggedin->checkPermissions() == "admin") {
+		system("cls");
+		char c;
+		std::cout << "Wcisnij n aby stworzyc nowego uzytkownika z aby zarzadzac obecnymi";
+		while (((c = _getch()) != 'n') && (c != 'z'));
+		if (c == 'n') {
+			system("cls");
+			std::cout << "podaj uprawniwnienia uzytkownika: ";
+			std::string s = "";
+			char c2;
+			while ((c2 = _getch()) != 13)
+			s += c2;
+			registerUser(s);
+		}
+		else {
+			char c2=0;
+			int wh=0;
+			do {
+				system("cls");
+				if (c2 == 'w')wh--;
+				if (c2 == 's')wh++;
+				if (wh < 0)wh = userstab.size() - 1;
+				if (wh > userstab.size() - 1)wh = 0;
+				for (int i = 0; i < userstab.size(); i++)
+				{
+					std::cout << userstab[i].getName() << " " << userstab[i].getLastName() << " "
+						<< userstab[i].getAddres() << " " << userstab[i].getPhone() << " "
+						<< userstab[i].getSSN() << " " << userstab[i].checkPermissions() << " "
+						<< userstab[i].getPassword() << " " << userstab[i].getUsername() << " "
+						<< (wh == i ? " <<\n" : "\n");
+				}
+			} while ((c2=_getch())!=13);
+
+			std::cout << "Zmiana danych uzytkownika uzytkownika" << std::endl;
+
+			std::cout << "Wpisz Imie: ";
+			std::string im;
+			std::cin >> im;
+
+			std::cout << "Wpisz Nazwisko: ";
+			std::string na;
+			std::cin >> na;
+
+			std::cout << "Podaj adres: ";
+			std::string ad;
+			std::cin >> ad;
+
+			std::cout << "Podaj numer telefonu: ";
+			int tel;
+			std::cin >> tel;
+			
+					std::cout << "Wpisz haslo: ";
+					std::string pas = "";
+					char c;
+					while ((c = _getch()) != 13)
+						pas += c;
+
+					userstab[wh].changeData(pas,tel,ad,na,im);
+					system("cls");
+					std::cout << "pomyslna zmiana danych\n";
+					return;
+
+
+		}
+	}
 }
 
 void menu::warhouseMenage() {
-	// TODO - implement menu::warhouseMenage
-	throw "Not yet implemented";
+	if (userloggedin->checkPermissions() == "admin") {
+
+		system("cls");
+
+		std::cout << "Zmien powierzchnie magazynu";
+		std::cout << "Dodaj produkt";
+
+			std::cout << "Wcisnij 1 aby zmienic powierzchnie magazynu 2 aby dodac produkt";
+
+			char w = _getch();
+
+			if (w == '1') {
+				system("cls");
+				std::cout << "Wpisz liczbe o ktora ma byc zwiekszona powierzchnia magazynu ";
+				float ar;
+				std::cin >> ar;
+				w1.changeSpace(ar);
+			}
+			else if (w == '2') {
+				system("cls");
+				std::string n, s, o;
+				int il;
+					std::cout << "Podaj nazwe";
+					std::cin >> n;
+					std::cout << "Podaj ilosc";
+					std::cin >> il;
+					std::cout << "Podaj specyfikacje";
+					std::cin >> s;
+					std::cout << "Podaj opis";
+					std::cin >> o;
+				//w1.products.pushback(n,il,s,o);
+			}
+	}
+	else
+	{
+		system("cls");
+		std::cout << "Odmowa dostepu";
+		_getch();
+	}
+}
+
+
+void menu::makeOrder() {
+	if (userloggedin->checkPermissions() == "user") {
+
+		std::vector<int> count;
+		std::vector<product*> products;
+		int pID;
+		int c;
+		system("cls");
+		w1.showAllProducts();
+		std::cout << "wcisnij enter aby zakonczyc zmiane dowolny klawisz aby wybierac dalej produkty\n";
+
+		while (_getch() != 13) {
+
+			system("cls");
+			w1.showAllProducts();
+			std::cout << "Wpisz ID produktu ";
+			std::cin >> pID;
+			std::cout << "Wpisz ilosc ";
+			std::cin >> c;
+				count.push_back(c);
+				//for (int i = 0; i < w1.products.size(); i++)
+			//	if (w1.products[i].getID() == pID)
+			//		products.pushback(*w1.products[i]);
+			std::cout << "wcisnij enter aby zakonczyc zmiane dowolny klawisz aby wybierac dalej produkty\n";
+
+		}
+
+		//w1.OrderSeq.pushback(Order(userloggedin,products,count));
+	}
+	else
+	{
+		system("cls");
+		std::cout << "Odmowa dostepu";
+		_getch();
+	}
+}
+
+void menu::makeDelivery() {
+	if (userloggedin->checkPermissions() == "employee") {
+
+		int count;
+		int pID;
+
+		system("cls");
+		w1.showAllProducts();
+		std::cout << "wcisnij enter aby zakonczyc zmiane dowolny klawisz aby wybierac dalej produkty\n";
+
+		while (_getch() != 13) {
+
+			system("cls");
+			w1.showAllProducts();
+			std::cout << "Wpisz ID produktu ";
+			std::cin >> pID;
+			std::cout << "Wpisz ilosc ";
+			std::cin >> count;
+			std::cout << "wcisnij enter aby zakonczyc zmiane dowolny klawisz aby wybierac dalej produkty\n";
+		
+			//for (int i = 0; i < w1.products.size(); i++)
+			//	if (w1.products[i].getID() == pID)
+			//		w1.products[i].changecount(count * -1);
+
+		}
+
+	}
+	else
+	{
+		system("cls");
+		std::cout << "Odmowa dostepu";
+		_getch();
+	}
+}
+
+void menu::takeOrder() {
+	if (userloggedin->checkPermissions() == "employee") {
+
+		//for (int i = 0; i < w1.orders.size(); i++)
+		//	w1.orders[i].showorder();
+
+		int ordID;
+
+		std::cout << "Wpisz id orderu do wykonania";
+		std::cin >> ordID;
+
+		//for (int i = 0; i < w1.orders.size(); i++)
+		//	if(w1.orders[i].getID()==ordID)w1.orders[i].completeOrder();
+
+	}
+	else
+	{
+		system("cls");
+		std::cout << "Odmowa dostepu";
+		_getch();
+	}
 }
