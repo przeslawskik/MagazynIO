@@ -6,18 +6,18 @@ void warehouse::changeSpace(float sp) {
 
 bool warehouse::ifFull() {
 	float zajeta_przestrzen=0;
-	for (int i = 0, i < product_tab.size().i++)	//tutaj chyba tworzenie pliku z produktami by siê przyda³o mieæ
+	for (int i = 0; i < products.size(); i++)	//tutaj chyba tworzenie pliku z produktami by siê przyda³o mieæ
 	{
-		zajeta_przestrzen += product_tab[i].getAreaOfProduct();
+		zajeta_przestrzen += products[i].getAreaOfProduct();
 	}
 	if (zajeta_przestrzen < warehouse_space) return false;
 	return true;
 }
 
 void warehouse::showAllProducts() {
-	for (int i = 0, i < product_tab.size(), i++) //tutaj chyba tworzenie pliku z produktami by siê przyda³o mieæ
+	for (int i = 0; i < products.size(); i++) //tutaj chyba tworzenie pliku z produktami by siê przyda³o mieæ
 	{
-		product_tab[i].getProductInfo();
+		std::cout << products[i].getProductInfo();
 	}
 }
 

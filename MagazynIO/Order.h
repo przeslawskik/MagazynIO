@@ -3,17 +3,18 @@
 
 #include "user.h"
 #include "product.h"
+#include <vector>
 
 class Order {
 
 private:
 	int orderID;
 	user* whoordered;
-	product** items;
-	int* cout;
+	std::vector<product*> items;
+	std::vector<int> count;
 
 public:
-	Order(user* whoordered, product** items, int* cout);
+	Order(user* whoordered, std::vector<product*> it, std::vector<int> counts);
 
 	int getID(int orderID);
 };

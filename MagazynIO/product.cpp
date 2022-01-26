@@ -23,7 +23,6 @@ std::string product::getProductInfo() {
 	return s;
 }
 
-
 int product::getCount() {
 	return this->count;
 }
