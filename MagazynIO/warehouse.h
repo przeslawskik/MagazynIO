@@ -2,6 +2,7 @@
 #define WAREHOUSE_H
 #include "product.h"
 #include <vector>
+#include <fstream>
 
 class warehouse {
 

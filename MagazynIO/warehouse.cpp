@@ -1,5 +1,7 @@
 #include "warehouse.h"
 #include "product.h"
+#include <iostream>
+#include <conio.h>
 
 void warehouse::changeSpace(float sp) {
 	this->warehouse_space += sp;
@@ -7,7 +9,7 @@ void warehouse::changeSpace(float sp) {
 
 bool warehouse::ifFull() {
 	float zajeta_przestrzen=0;
-	for (int i = 0, i < products_tab.size().i++)
+	for (int i = 0; i < products_tab.size(); i++)
 	{
 		zajeta_przestrzen += products_tab[i].getAreaOfProduct();
 	}
@@ -16,26 +18,26 @@ bool warehouse::ifFull() {
 }
 
 void warehouse::showAllProducts() {
-	for (int i = 0, i < products_tab.size(), i++)
+	for (int i = 0; i < products_tab.size(); i++)
 		products_tab[i].getProductInfo();
-	}
+	
 }
 
 void warehouse::stocktaking() {
 	for (size_t i = 0; i < products_tab.size(); i++)
 	{
 		products_tab[i].getProductInfo();
-		cout << "Czy chcesz zmienic ilosc danego produktu?" << endl << "y - tak, n - nie" << endl;
-		char odp = _getch();
+		std::cout << "Czy chcesz zmienic ilosc danego produktu?" << std::endl << "y - tak, n - nie" << std::endl;
+		char odp = getch();
 
-		if (c == 'y' || c == 'Y' || c == 89 || c == 121 ) {
+		if (odp == 'y' || odp == 'Y' || odp == 89 || odp == 121 ) {
 			int l = 0;
-			cout << "Wprowadz nowa ilosc produktu: ";
-			cin >> l;
+			std::cout << "Wprowadz nowa ilosc produktu: ";
+			std::cin >> l;
 			products_tab[i].changeCount(l);
 			system("cls");
 		}
-		else if (c == 'n' || c == 'N' || c == 78 || c == 110 ) {
+		else if (odp == 'n' || odp == 'N' || odp == 78 || odp == 110 ) {
 			system("cls");
 		}
 		else

@@ -14,7 +14,7 @@ float product::getAreaOfProduct() {
 	return ((this->count) * (this->productSize));
 }
 
-std::string product::getProductInfo(std::string nam, int coun, std::string spec, std::string desc, float size, int ID) {
+std::string product::getProductInfo() {
 	std::cout << "Nazwa: " << this->productName << std::endl;
 	std::cout << "Ilosc: " << this->count << std::endl;
 	std::cout << "Specyfikacja: " << this->specification << std::endl;
