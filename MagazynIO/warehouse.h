@@ -11,7 +11,7 @@ private:
 
 	std::vector<product> products_tab;
 	std::fstream file;
-	std::string fname = "products_data";
+	std::string productsfname = "products_data";
 
 public:
 	void changeSpace(float sp);
