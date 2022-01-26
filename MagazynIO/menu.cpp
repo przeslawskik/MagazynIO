@@ -370,8 +370,8 @@ void menu::makeOrder() {
 				count.push_back(c);
 				w1.deliveryService(pID, (-1) * c);
 				for (int i = 0; i < w1.products.size(); i++)
-				if (w1.products[i].getID() == pID)
-				//products.push_back(w1.products[i]);
+					if (w1.products[i].getID() == pID)
+						products.push_back( & w1.products[i]);
 			std::cout << "wcisnij enter aby zakonczyc zmiane dowolny klawisz aby wybierac dalej produkty\n";
 
 		}
@@ -431,7 +431,7 @@ void menu::takeOrder() {
 		std::cin >> ordID;
 
 		//for (int i = 0; i < w1.orders.size(); i++)
-		//	if(w1.orders[i].getID()==ordID)w1.orders[i].completeOrder();
+		//if(w1.orders[i].getID()==ordID)w1.orders[i].completeOrder();
 
 	}
 	else
