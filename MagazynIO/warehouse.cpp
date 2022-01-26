@@ -1,4 +1,5 @@
 #include "warehouse.h"
+#include "product.h"
 
 void warehouse::changeSpace(float sp) {
 	this->warehouse_space += sp;
@@ -6,24 +7,43 @@ void warehouse::changeSpace(float sp) {
 
 bool warehouse::ifFull() {
 	float zajeta_przestrzen=0;
-	for (int i = 0, i < product_tab.size().i++)	//tutaj chyba tworzenie pliku z produktami by siê przyda³o mieæ
+	for (int i = 0, i < products_tab.size().i++)
 	{
-		zajeta_przestrzen += product_tab[i].getAreaOfProduct();
+		zajeta_przestrzen += products_tab[i].getAreaOfProduct();
 	}
 	if (zajeta_przestrzen < warehouse_space) return false;
 	return true;
 }
 
 void warehouse::showAllProducts() {
-	for (int i = 0, i < product_tab.size(), i++) //tutaj chyba tworzenie pliku z produktami by siê przyda³o mieæ
-	{
-		product_tab[i].getProductInfo();
+	for (int i = 0, i < products_tab.size(), i++)
+		products_tab[i].getProductInfo();
 	}
 }
 
 void warehouse::stocktaking() {
-	// TODO - implement warehouse::stocktaking
-	throw "Not yet implemented";
+	for (size_t i = 0; i < products_tab.size(); i++)
+	{
+		products_tab[i].getProductInfo();
+		cout << "Czy chcesz zmienic ilosc danego produktu?" << endl << "y - tak, n - nie" << endl;
+		char odp = _getch();
+
+		if (c == 'y' || c == 'Y' || c == 89 || c == 121 ) {
+			int l = 0;
+			cout << "Wprowadz nowa ilosc produktu: ";
+			cin >> l;
+			products_tab[i].changeCount(l);
+			system("cls");
+		}
+		else if (c == 'n' || c == 'N' || c == 78 || c == 110 ) {
+			system("cls");
+		}
+		else
+		{
+			system("cls");
+			break;
+		}
+	}
 }
 
 void warehouse::deliveryService() {
