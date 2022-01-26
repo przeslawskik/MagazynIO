@@ -4,6 +4,7 @@
 #include "product.h"
 #include "Order.h"
 #include <vector>
+#include <fstream>
 
 class warehouse {
 
@@ -12,8 +13,15 @@ private:
 	std::vector<product> products;
 	std::vector<Order> orders;
 
+	std::fstream file;
+	std::string fwarname = "war_data";
+
 
 public:
+	warehouse();
+
+	~warehouse();
+
 	void changeSpace(float sp);
 
 	bool ifFull();

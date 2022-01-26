@@ -363,6 +363,7 @@ void menu::makeOrder() {
 			std::cout << "Wpisz ilosc ";
 			std::cin >> c;
 				count.push_back(c);
+				w1.deliveryService(pID, (-1) * c);
 				//for (int i = 0; i < w1.products.size(); i++)
 			//	if (w1.products[i].getID() == pID)
 			//		products.pushback(*w1.products[i]);
@@ -400,9 +401,7 @@ void menu::makeDelivery() {
 			std::cin >> count;
 			std::cout << "wcisnij enter aby zakonczyc zmiane dowolny klawisz aby wybierac dalej produkty\n";
 		
-			//for (int i = 0; i < w1.products.size(); i++)
-			//	if (w1.products[i].getID() == pID)
-			//		w1.products[i].changecount(count * -1);
+			w1.deliveryService(pID, count);
 
 		}
 

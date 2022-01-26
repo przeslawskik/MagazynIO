@@ -6,12 +6,12 @@ product::product(std::string nam, int coun, std::string spec, std::string desc, 
 {}
 
 void product::changeCount(int val) {
-	this->count = val;
+	this->count += val;
 }
 
 float product::getAreaOfProduct() {
 
-	return this->productSize * this->count;
+	return (this->productSize * this->count);
 }
 
 std::string product::getProductInfo() {
@@ -23,10 +23,30 @@ std::string product::getProductInfo() {
 	return s;
 }
 
+std::string product::getName() {
+	return this->productName;
+}
+
 int product::getCount() {
 	return this->count;
 }
 
+std::string product::getSpec() {
+	return this->specification;
+}
+
+std::string product::getDesc() {
+	return this->description;
+}
+
+float product::getSize() {
+	return this->productSize;
+}
+
 int product::getID() {
 	return this->productID;
+}
+
+product* product::product_self() {
+	return this;
 }

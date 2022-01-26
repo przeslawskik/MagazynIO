@@ -18,7 +18,15 @@ public:
 
 	void changeCount(int val);
 
+	std::string getName();
+
 	int getCount();
+
+	std::string getSpec();
+
+	std::string getDesc();
+
+	float getSize();
   
 	float getAreaOfProduct();
 
@@ -26,6 +34,7 @@ public:
 
 	int getID();
 
+	product* product_self()
 };
 
 #endif
