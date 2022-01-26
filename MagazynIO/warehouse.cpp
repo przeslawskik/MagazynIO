@@ -10,8 +10,10 @@ bool warehouse::ifFull() {
 }
 
 void warehouse::showAllProducts() {
-	// TODO - implement warehouse::showAllProducts
-	throw "Not yet implemented";
+	for (int i = 0, i < wielkosc_tablicy_produktow, i++)
+	{
+		
+	}
 }
 
 void warehouse::stocktaking() {
