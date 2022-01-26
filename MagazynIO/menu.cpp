@@ -1,9 +1,5 @@
 #include "menu.h"
 
-void menu::makeOrder() {
-	// TODO - implement menu::makeOrder
-	throw "Not yet implemented";
-}
 
 bool menu::login() {
 
@@ -165,10 +161,7 @@ void menu::mloop(int inmopt) {
 	return mloop(inmopt);
 }
 
-void menu::takeOrder() {
-	// TODO - implement menu::takeOrder
-	throw "Not yet implemented";
-}
+
 
 void menu::registerUser(std::string perm) {
 
@@ -223,10 +216,7 @@ void menu::registerUser(std::string perm) {
 	
 }
 
-void menu::makeDelivery() {
-	// TODO - implement menu::makeDelivery
-	throw "Not yet implemented";
-}
+
 
 void menu::changeUserData() {
 	if (userloggedin->checkPermissions() == "employee") {
@@ -313,4 +303,41 @@ void menu::changeUserData() {
 void menu::warhouseMenage() {
 	// TODO - implement menu::warhouseMenage
 	throw "Not yet implemented";
+}
+
+
+void menu::makeOrder() {
+	if (userloggedin->checkPermissions() == "user") {
+
+	}
+	else
+	{
+		system("cls");
+		std::cout << "Odmowa dostepu";
+		_getch();
+	}
+}
+
+void menu::makeDelivery() {
+	if (userloggedin->checkPermissions() == "employee") {
+
+	}
+	else
+	{
+		system("cls");
+		std::cout << "Odmowa dostepu";
+		_getch();
+	}
+}
+
+void menu::takeOrder() {
+	if (userloggedin->checkPermissions() == "employee") {
+
+	}
+	else
+	{
+		system("cls");
+		std::cout << "Odmowa dostepu";
+		_getch();
+	}
 }
