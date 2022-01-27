@@ -44,6 +44,7 @@ menu::menu() {
 	}
 	
 	file.close();
+
 }
 
 menu::~menu() {
@@ -64,6 +65,7 @@ menu::~menu() {
 
 	file.close();
 
+	//w1.~warehouse();
 }
 
 void menu::begmloop(int inmopt) {
@@ -132,8 +134,8 @@ void menu::mloop(int inmopt) {
 	else if (c == 13) {
 		switch (inmopt) {
 		case 1:
-			break;
 			makeOrder();
+			break;
 		case 2:
 			break;
 			takeOrder();
@@ -358,6 +360,8 @@ void menu::makeOrder() {
 		system("cls");
 		w1.showAllProducts();
 		std::cout << "wcisnij enter aby zakonczyc zmiane dowolny klawisz aby wybierac dalej produkty\n";
+
+		_getch();
 
 		while (_getch() != 13) {
 

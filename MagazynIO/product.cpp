@@ -17,7 +17,7 @@ float product::getAreaOfProduct() {
 std::string product::getProductInfo() {
 	std::string s = "";
 	s += this->productName+" ";
-	s += this->count+" ";
+	s += std::to_string(this->count) + " ";
 	s += this->specification+" ";
 	s += this->description;
 	return s;

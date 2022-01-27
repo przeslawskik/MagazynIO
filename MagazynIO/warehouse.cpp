@@ -53,7 +53,7 @@ bool warehouse::ifFull() {
 void warehouse::showAllProducts() {
 	for (int i = 0; i < products.size(); i++) 
 	{
-		std::cout << products[i].getProductInfo();
+		std::cout << products[i].getProductInfo() << std::endl;
 	}
 }
 
